@@ -364,7 +364,7 @@ def get_mac_from_ip(ip):
     return mac
 
 def open_cli_mode():
-    command = f'start cmd /k "cd C:/Users/kunal/OneDrive/Desktop/my/python/NETMAP && python cli.py"'
+    command = f'start cmd /k "cd ENTER YOUR FILE PATH && python cli.py"'
     os.system(command)
 
 def start_scan():
@@ -487,7 +487,7 @@ ttk.Style().theme_use("xpnative")
 # Set the window background color
 window.configure(bg="#F5F5F5")
 
-image = Image.open("c:/Users/kunal/OneDrive/Desktop/my/python/NETMAP/image/Logo.png")
+image = Image.open("ENTER FILE PATH")
 image_icon = ImageTk.PhotoImage(image)
 window.iconphoto(False, image_icon)
 
