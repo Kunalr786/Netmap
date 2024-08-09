@@ -15,14 +15,14 @@ root.config(bg=background)
 root.resizable(True,True)
 
 #icon for the login page
-image_icon = PhotoImage(file="C:/Users/kunal/OneDrive/Desktop/my/python/NETMAP/image/Logo.png")
+image_icon = PhotoImage(file="ENTER FILE PATH")
 root.iconphoto(False,image_icon)
 
 #background
 frame=Frame(root, bg="red")
 frame.pack(fill=Y)
 
-backgroundimage=PhotoImage(file="C:/Users/kunal/OneDrive/Desktop/my/python/NETMAP/image/LOGIN.png")
+backgroundimage=PhotoImage(file="ENTER FILE PATH")
 Label(frame, image=backgroundimage).pack()
 
 #user entry
@@ -70,8 +70,8 @@ def hide():
         button_mode=True
 
 
-openeye=PhotoImage(file="C:/Users/kunal/OneDrive/Desktop/my/python/NETMAP/image/openeye.png", width=38, height=38)
-closeeye=PhotoImage(file="C:/Users/kunal/OneDrive/Desktop/my/python/NETMAP/image/close eye.png", width= 38, height=38)
+openeye=PhotoImage(file="ENTER FILE PATH", width=38, height=38)
+closeeye=PhotoImage(file="ENTER FILE PATH", width= 38, height=38)
 eyeButton=Button(image=openeye, bg= "#375174", bd=0, command=hide)
 eyeButton.place(x=780, y=410)
 
@@ -89,16 +89,16 @@ registerButton.place(x=650, y=520)
 def connect_to_db():
     db = mysql.connector.connect(
         host="localhost",
-        user="lonewolf",
-        password="Kunal7860rr$",
-        database="userregistration"
+        user="",
+        password="",
+        database=""
     )
     return db
 
 def validate_user(username, password):
     db = connect_to_db()
     cursor = db.cursor()
-    query = f"SELECT password FROM login WHERE username = '{username}'"
+    query = f"SELECT password FROM TABLE_NAME WHERE username = '{username}'"
     cursor.execute(query)
     result = cursor.fetchone()
     db.close()
