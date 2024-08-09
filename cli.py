@@ -27,7 +27,7 @@ print(r"""
                                                          |__/         """)
 print("\n****************************************************************")
 print("\n* Copyright of kunal ramraje, 2024                              *")
-print("\n* University of Greenwich                                       *")
+print("\n*                                                               *")
 print("\n****************************************************************")
 
 def scan_host(ip, ports):
