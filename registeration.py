@@ -18,39 +18,39 @@ def register():
     password = code.get()
     admincode = adminaccess.get()
 
-    if admincode == "7860":
+    if admincode == "ENTER ADMIN CODE":
         if (username == "" or username == "UserID") or (password == "" or password == "Password"):
             messagebox.showerror("Error", "All fields are required")
         else:
             try:
                 mydb = mysql.connector.connect(
                     host="localhost",
-                    user="lonewolf",
-                    password="Kunal7860rr$"
+                    user="ENTER USERNAME",
+                    password="ENTER PASSWORD"
                 )
 
                 mycursor = mydb.cursor()
 
                 # Check if the database exists
-                mycursor.execute("SHOW DATABASES LIKE 'UserRegistration'")
+                mycursor.execute("SHOW DATABASES LIKE ''ENTER DATABASE NAME")
                 result = mycursor.fetchone()
 
                 if result is None:
                     # Database does not exist, create it
-                    mycursor.execute("CREATE DATABASE UserRegistration")
+                    mycursor.execute("CREATE DATABASE #YOUR_DATABASE")
                     mycursor.execute("USE UserRegistration")
 
                     # Create the table
-                    mycursor.execute("CREATE TABLE Login (id INT AUTO_INCREMENT,username VARCHAR(50) NOT NULL,password VARCHAR(500) NOT NULL,PRIMARY KEY (id))")
+                    mycursor.execute("CREATE TABLE TABLE_NAME (id INT AUTO_INCREMENT,username VARCHAR(50) NOT NULL,password VARCHAR(500) NOT NULL,PRIMARY KEY (id))")
                 else:
                     # Database exists, use it
-                    mycursor.execute("USE UserRegistration")
+                    mycursor.execute("USE #DATABASE")
                 
                 # Hash the password
                 hashed_password = hashlib.sha256(password.encode()).hexdigest()
 
                 # Insert the new user into the existing table
-                query = "INSERT INTO Login(Username,Password) values(%s,%s)"
+                query = "INSERT INTO TABLE_NAME(Username,Password) values(%s,%s)"
                 mycursor.execute(query, (username, hashed_password))
                 mydb.commit()
 
@@ -69,14 +69,14 @@ def login():
     import Login
 
 #icon for the login page
-image_icon=PhotoImage(file="C:/Users/kunal/OneDrive/Desktop/my/python/NETMAP/image/icon.png")
+image_icon=PhotoImage(file="ENTER FILE PATH")
 root.iconphoto(False,image_icon)
 
 #background
 frame=Frame(root, bg="red")
 frame.pack(fill=Y)
 
-backgroundimage=PhotoImage(file="C:/Users/kunal/OneDrive/Desktop/my/python/NETMAP/image/register.png")
+backgroundimage=PhotoImage(file="ENTER FILE PATH")
 Label(frame, image=backgroundimage).pack()
 
 adminaccess= Entry(frame, width=15, fg="#000", border=0, bg="#e8ecf7", font=("Arial Bold", 20), show="*")
@@ -128,15 +128,15 @@ def hide():
         button_mode=True
 
 
-openeye=PhotoImage(file="C:/Users/kunal/OneDrive/Desktop/my/python/NETMAP/image/openeye.png", width=38, height=38)
-closeeye=PhotoImage(file="C:/Users/kunal/OneDrive/Desktop/my/python/NETMAP/image/close eye.png", width= 38, height=38)
+openeye=PhotoImage(file="ENTER FILE PATH", width=38, height=38)
+closeeye=PhotoImage(file="ENTER FILE PATH", width= 38, height=38)
 eyeButton=Button(image=openeye, bg= "#375174", bd=0, command=hide)
 eyeButton.place(x=780, y=470)
 
 reg_button= Button(root, text="Add new user", bg="#455c88", fg="white", width=13, height=1, font= ("Arial",16,"bold"), bd=0, command=register)
 reg_button.place(x=530, y=600)
 
-back=PhotoImage(file="C:/Users/kunal/OneDrive/Desktop/my/python/NETMAP/image/backbutton.png")
+back=PhotoImage(file="ENTER FILE PATH")
 backButton=Button(root, image=back, fg="#deeefb", command=login)
 backButton.place(x=20, y=15)
 
